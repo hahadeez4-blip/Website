@@ -9,17 +9,37 @@
 
 <h1>⚡ NOVA LUAU STUDIO ⚡</h1>
 
-<div class="container">
-  <textarea id="editor" placeholder="-- Write your Luau script here..."></textarea>
+<div class="layout">
 
-  <div class="buttons">
-    <button onclick="copyScript()">Copy</button>
-    <button onclick="downloadScript()">Download</button>
-    <button onclick="clearEditor()">Clear</button>
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <h3>📚 Templates</h3>
     <button onclick="loadTemplate('basic')">Basic</button>
-    <button onclick="loadTemplate('gui')">GUI</button>
-    <button onclick="loadTemplate('tool')">Tool</button>
+    <button onclick="loadTemplate('medium')">Medium</button>
+    <button onclick="loadTemplate('advanced')">Advanced</button>
+
+    <h3>🧠 Tips</h3>
+    <button onclick="showTips('basic')">Basic</button>
+    <button onclick="showTips('medium')">Medium</button>
+    <button onclick="showTips('hard')">Hard</button>
+    <button onclick="showTips('extreme')">Extreme</button>
   </div>
+
+  <!-- MAIN -->
+  <div class="main">
+    <textarea id="editor" placeholder="-- Write your Luau script here..."></textarea>
+
+    <div class="buttons">
+      <button onclick="copyScript()">Copy</button>
+      <button onclick="downloadScript()">Download</button>
+      <button onclick="clearEditor()">Clear</button>
+      <button onclick="formatScript()">Format</button>
+      <button onclick="lineCount()">Lines</button>
+    </div>
+
+    <div id="info"></div>
+  </div>
+
 </div>
 
 <script src="script.js"></script>
