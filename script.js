@@ -1,30 +1,41 @@
-function loadModule(type) {
-  const content = document.getElementById("content");
+const editor = document.getElementById("editor");
 
-  if (type === "ui") {
-    content.innerHTML = `
-      <h2>UI Demo</h2>
-      <p>Preview custom Roblox UI concepts.</p>
-      <div class="fake-ui">⚡ Animated UI Panel ⚡</div>
-    `;
-  }
-
-  if (type === "tools") {
-    content.innerHTML = `
-      <h2>Tools</h2>
-      <button onclick="copyText()">Copy Example Code</button>
-    `;
-  }
-
-  if (type === "scripts") {
-    content.innerHTML = `
-      <h2>Scripts</h2>
-      <pre id="code">print("Hello Roblox!")</pre>
-    `;
-  }
+// Copy
+function copyScript() {
+  navigator.clipboard.writeText(editor.value);
+  alert("Copied!");
 }
 
-function copyText() {
-  navigator.clipboard.writeText('print("Hello Roblox!")');
-  alert("Copied!");
+// Download
+function downloadScript() {
+  const blob = new Blob([editor.value], { type: "text/plain" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "script.lua";
+  a.click();
+}
+
+// Clear
+function clearEditor() {
+  editor.value = "";
+}
+
+// Templates
+function loadTemplate(type) {
+  if (type === "basic") {
+    editor.value = `print("Hello Roblox!")`;
+  }
+
+  if (type === "gui") {
+    editor.value = `local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")`;
+  }
+
+  if (type === "tool") {
+    editor.value = `local tool = script.Parent
+
+tool.Activated:Connect(function()
+  print("Tool used!")
+end)`;
+  }
 }
