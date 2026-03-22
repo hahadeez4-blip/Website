@@ -1,17 +1,36 @@
 body {
+  margin: 0;
   background: black;
   color: cyan;
   font-family: Arial;
-  text-align: center;
 }
 
 h1 {
+  text-align: center;
   text-shadow: 0 0 20px cyan;
 }
 
-.container {
-  width: 80%;
-  margin: auto;
+/* Layout */
+.layout {
+  display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 200px;
+  padding: 10px;
+  border-right: 2px solid cyan;
+}
+
+.sidebar button {
+  width: 100%;
+  margin: 5px 0;
+}
+
+/* Main */
+.main {
+  flex: 1;
+  padding: 10px;
 }
 
 textarea {
@@ -25,22 +44,39 @@ textarea {
   box-shadow: 0 0 20px cyan;
 }
 
+/* Buttons */
 .buttons {
   margin-top: 10px;
 }
 
 button {
-  margin: 5px;
   padding: 10px;
   background: black;
   border: 2px solid cyan;
   color: cyan;
   cursor: pointer;
-  transition: 0.3s;
+  margin: 5px;
 }
 
 button:hover {
   background: cyan;
   color: black;
   box-shadow: 0 0 20px cyan;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 2px solid cyan;
+  }
+
+  textarea {
+    height: 200px;
+  }
 }
