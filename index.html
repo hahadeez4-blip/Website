@@ -2,23 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>NovaHub</title>
+  <title>Nova Luau Studio</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="bg"></div>
+<h1>⚡ NOVA LUAU STUDIO ⚡</h1>
 
-<h1 class="title">⚡ NOVA HUB ⚡</h1>
+<div class="container">
+  <textarea id="editor" placeholder="-- Write your Luau script here..."></textarea>
 
-<div class="panel">
-  <button onclick="loadModule('ui')">UI Demo</button>
-  <button onclick="loadModule('tools')">Tools</button>
-  <button onclick="loadModule('scripts')">Scripts</button>
-</div>
-
-<div id="content" class="content">
-  <p>Select a module...</p>
+  <div class="buttons">
+    <button onclick="copyScript()">Copy</button>
+    <button onclick="downloadScript()">Download</button>
+    <button onclick="clearEditor()">Clear</button>
+    <button onclick="loadTemplate('basic')">Basic</button>
+    <button onclick="loadTemplate('gui')">GUI</button>
+    <button onclick="loadTemplate('tool')">Tool</button>
+  </div>
 </div>
 
 <script src="script.js"></script>
