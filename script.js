@@ -1,19 +1,28 @@
+const validKeys = ["Test1", "Test2", "Test3"];
 const editor = document.getElementById("editor");
-const info = document.getElementById("info");
 
-// AUTO SAVE
-setInterval(() => {
-  localStorage.setItem("script", editor.value);
-}, 1000);
+// LOADING → SHOW KEY
+setTimeout(() => {
+  document.getElementById("loader").style.display = "none";
+}, 2500);
 
-window.onload = () => {
-  editor.value = localStorage.getItem("script") || "";
-};
+// KEY SYSTEM
+function checkKey() {
+  const input = document.getElementById("keyInput").value;
+
+  if (validKeys.includes(input)) {
+    document.getElementById("keyScreen").style.display = "none";
+    document.getElementById("hub").style.display = "block";
+    notify("Access Granted ✅");
+  } else {
+    notify("Invalid Key ❌");
+  }
+}
 
 // COPY
 function copyScript() {
   navigator.clipboard.writeText(editor.value);
-  alert("Copied!");
+  notify("Copied Script 📋");
 }
 
 // DOWNLOAD
@@ -23,62 +32,26 @@ function downloadScript() {
   a.href = URL.createObjectURL(blob);
   a.download = "script.lua";
   a.click();
+  notify("Downloaded 📥");
 }
 
 // CLEAR
 function clearEditor() {
   editor.value = "";
+  notify("Cleared 🧹");
 }
 
-// FORMAT (basic)
-function formatScript() {
-  editor.value = editor.value
-    .replace(/;/g, ";\n")
-    .replace(/end/g, "\nend");
-}
+// NOTIFICATION SYSTEM
+function notify(msg) {
+  const container = document.getElementById("notifyContainer");
 
-// LINE COUNT
-function lineCount() {
-  const lines = editor.value.split("\n").length;
-  info.innerText = "Lines: " + lines;
-}
+  const div = document.createElement("div");
+  div.className = "notify";
+  div.innerText = msg;
 
-// TEMPLATES
-function loadTemplate(type) {
-  if (type === "basic") {
-    editor.value = `print("Hello Roblox!")`;
-  }
+  container.appendChild(div);
 
-  if (type === "medium") {
-    editor.value = `local part = Instance.new("Part")
-part.Parent = workspace
-part.Position = Vector3.new(0,10,0)`;
-  }
-
-  if (type === "advanced") {
-    editor.value = `local Players = game:GetService("Players")
-
-Players.PlayerAdded:Connect(function(player)
-  print(player.Name .. " joined")
-end)`;
-  }
-}
-
-// TIPS
-function showTips(level) {
-  if (level === "basic") {
-    info.innerText = "Basic: Use print(), variables, simple events.";
-  }
-
-  if (level === "medium") {
-    info.innerText = "Medium: Use Instances, services, and connections.";
-  }
-
-  if (level === "hard") {
-    info.innerText = "Hard: Use modules, remote events, optimization.";
-  }
-
-  if (level === "extreme") {
-    info.innerText = "Extreme: Systems, frameworks, AI logic, advanced math.";
-  }
+  setTimeout(() => {
+    div.remove();
+  }, 3000);
 }
