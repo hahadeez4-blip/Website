@@ -3,59 +3,60 @@ body {
   background: black;
   color: cyan;
   font-family: Arial;
-}
-
-h1 {
   text-align: center;
-  text-shadow: 0 0 20px cyan;
 }
 
-/* Layout */
-.layout {
+/* LOADER */
+#loader {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: black;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeOut 2s forwards;
+  animation-delay: 2s;
 }
 
-/* Sidebar */
-.sidebar {
-  width: 200px;
-  padding: 10px;
-  border-right: 2px solid cyan;
+@keyframes fadeOut {
+  to { opacity: 0; visibility: hidden; }
 }
 
-.sidebar button {
-  width: 100%;
-  margin: 5px 0;
+/* KEY SCREEN */
+#keyScreen {
+  margin-top: 100px;
 }
 
-/* Main */
-.main {
-  flex: 1;
-  padding: 10px;
-}
-
-textarea {
-  width: 100%;
-  height: 300px;
-  background: #111;
-  color: #0ff;
-  border: 2px solid cyan;
-  padding: 10px;
-  font-family: monospace;
-  box-shadow: 0 0 20px cyan;
-}
-
-/* Buttons */
-.buttons {
-  margin-top: 10px;
-}
-
-button {
+input {
   padding: 10px;
   background: black;
   border: 2px solid cyan;
   color: cyan;
+}
+
+/* HUB */
+#hub {
+  animation: fadeIn 1s;
+}
+
+textarea {
+  width: 80%;
+  height: 300px;
+  background: #111;
+  color: #0ff;
+  border: 2px solid cyan;
+  box-shadow: 0 0 20px cyan;
+}
+
+/* BUTTONS */
+button {
+  margin: 10px;
+  padding: 10px;
+  border: 2px solid cyan;
+  background: black;
+  color: cyan;
   cursor: pointer;
-  margin: 5px;
 }
 
 button:hover {
@@ -64,19 +65,22 @@ button:hover {
   box-shadow: 0 0 20px cyan;
 }
 
-/* Mobile */
-@media (max-width: 700px) {
-  .layout {
-    flex-direction: column;
-  }
+/* NOTIFICATIONS */
+#notifyContainer {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+}
 
-  .sidebar {
-    width: 100%;
-    border-right: none;
-    border-bottom: 2px solid cyan;
-  }
+.notify {
+  background: black;
+  border: 2px solid cyan;
+  padding: 10px;
+  margin-top: 10px;
+  animation: slideIn 0.5s;
+}
 
-  textarea {
-    height: 200px;
-  }
+@keyframes slideIn {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
 }
