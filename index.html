@@ -6,35 +6,53 @@
 </head>
 <body>
 
-<h1>🌌 JoJo RPG: Ultimate Bosses 🌌</h1>
-
-<div class="game">
-
-  <div class="panel">
-    <h2>👤 Player</h2>
-    <p id="trait"></p>
-    <p id="stand"></p>
-    <p id="level"></p>
-    <p id="stats"></p>
-  </div>
-
-  <div class="panel">
-    <h2>🎒 Inventory</h2>
-    <p id="inventory"></p>
-    <button onclick="useArrow()">Use Arrow</button>
-    <button onclick="train()">Train</button>
-  </div>
-
-  <div class="panel">
-    <h2>⚔️ Combat</h2>
-    <button onclick="attack()">Attack</button>
-    <button onclick="ability()">Ability</button>
-    <button onclick="fightBoss()">Fight Boss</button>
-  </div>
-
+<!-- LOADING SCREEN -->
+<div id="loadingScreen">
+  <h1>Loading JoJo RPG...</h1>
+  <p id="loadingProgress">0%</p>
 </div>
 
-<div id="notifyContainer"></div>
+<!-- GAME UI -->
+<div id="gameUI" style="display:none;">
+  <h1>🌌 JoJo RPG: Ultimate Bosses 🌌</h1>
+
+  <div class="game">
+
+    <div class="panel">
+      <h2>👤 Player</h2>
+      <p id="trait"></p>
+      <p id="stand"></p>
+      <p id="level"></p>
+      <p id="stats"></p>
+    </div>
+
+    <div class="panel">
+      <h2>🎒 Inventory</h2>
+      <p id="inventory"></p>
+      <button onclick="useArrow()">Use Arrow</button>
+      <button onclick="train()">Train</button>
+    </div>
+
+    <div class="panel">
+      <h2>⚔️ Combat</h2>
+      <button onclick="attack()">Attack</button>
+      <button onclick="ability()">Ability</button>
+      <button onclick="fightBoss()">Fight Boss</button>
+    </div>
+
+    <div class="panel">
+      <h2>🕹️ Movement</h2>
+      <p>Use arrow keys to move on map</p>
+    </div>
+
+  </div>
+
+  <div id="map">
+    <div id="playerDot"></div>
+  </div>
+
+  <div id="notifyContainer"></div>
+</div>
 
 <script src="script.js"></script>
 </body>
