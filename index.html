@@ -1,38 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Nova Luau Hub</title>
+  <title>JoJo RPG Ultimate</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- LOADING SCREEN -->
-<div id="loader">
-  <h1>⚡ Loading Nova Hub...</h1>
-</div>
+<h1>🌌 JoJo RPG: Ultimate Bosses 🌌</h1>
 
-<!-- KEY SYSTEM -->
-<div id="keyScreen">
-  <h2>Enter Key</h2>
-  <input id="keyInput" placeholder="Enter key...">
-  <button onclick="checkKey()">Submit</button>
-</div>
+<div class="game">
 
-<!-- MAIN HUB -->
-<div id="hub" style="display:none;">
-  <h1>⚡ NOVA LUAU HUB ⚡</h1>
-
-  <textarea id="editor" placeholder="-- Write your Luau script..."></textarea>
-
-  <div class="buttons">
-    <button onclick="copyScript()">Copy</button>
-    <button onclick="downloadScript()">Download</button>
-    <button onclick="clearEditor()">Clear</button>
+  <div class="panel">
+    <h2>👤 Player</h2>
+    <p id="trait"></p>
+    <p id="stand"></p>
+    <p id="level"></p>
+    <p id="stats"></p>
   </div>
+
+  <div class="panel">
+    <h2>🎒 Inventory</h2>
+    <p id="inventory"></p>
+    <button onclick="useArrow()">Use Arrow</button>
+    <button onclick="train()">Train</button>
+  </div>
+
+  <div class="panel">
+    <h2>⚔️ Combat</h2>
+    <button onclick="attack()">Attack</button>
+    <button onclick="ability()">Ability</button>
+    <button onclick="fightBoss()">Fight Boss</button>
+  </div>
+
 </div>
 
-<!-- NOTIFICATIONS -->
 <div id="notifyContainer"></div>
 
 <script src="script.js"></script>
