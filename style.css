@@ -40,5 +40,84 @@ button:hover {
 .notify {
   border: 2px solid cyan;
   padding: 10px;
+  margin-top: /* GENERAL */
+body {
+  background: black;
+  color: cyan;
+  font-family: Arial;
+  text-align: center;
+  margin: 0;
+  overflow: hidden;
+}
+
+/* LOADING SCREEN */
+#loadingScreen {
+  position: fixed;
+  top:0; left:0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: cyan;
+}
+
+/* GAME UI */
+.game {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.panel {
+  border: 2px solid cyan;
+  padding: 15px;
+  width: 230px;
+  box-shadow: 0 0 20px cyan;
+}
+
+button {
+  margin: 5px;
+  padding: 10px;
+  background: black;
+  border: 2px solid cyan;
+  color: cyan;
+  cursor: pointer;
+}
+
+button:hover {
+  background: cyan;
+  color: black;
+}
+
+/* MAP */
+#map {
+  position: relative;
+  margin: 20px auto;
+  width: 500px;
+  height: 300px;
+  border: 2px solid cyan;
+  background: #111;
+}
+
+#playerDot {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: yellow;
+  top: 140px;
+  left: 240px;
+  border-radius: 50%;
+}
+
+/* NOTIFICATIONS */
+.notify {
+  border: 2px solid cyan;
+  padding: 10px;
   margin-top: 10px;
+  background: black;
 }
