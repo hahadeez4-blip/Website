@@ -1,60 +1,33 @@
 body {
-  margin: 0;
   background: black;
   color: cyan;
   font-family: Arial;
   text-align: center;
 }
 
-/* LOADER */
-#loader {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: black;
+h1 {
+  text-shadow: 0 0 20px cyan;
+}
+
+.game {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-  animation: fadeOut 2s forwards;
-  animation-delay: 2s;
+  gap: 20px;
 }
 
-@keyframes fadeOut {
-  to { opacity: 0; visibility: hidden; }
-}
-
-/* KEY SCREEN */
-#keyScreen {
-  margin-top: 100px;
-}
-
-input {
-  padding: 10px;
-  background: black;
+.panel {
   border: 2px solid cyan;
-  color: cyan;
-}
-
-/* HUB */
-#hub {
-  animation: fadeIn 1s;
-}
-
-textarea {
-  width: 80%;
-  height: 300px;
-  background: #111;
-  color: #0ff;
-  border: 2px solid cyan;
+  padding: 15px;
+  width: 230px;
   box-shadow: 0 0 20px cyan;
 }
 
-/* BUTTONS */
 button {
-  margin: 10px;
+  margin: 5px;
   padding: 10px;
-  border: 2px solid cyan;
   background: black;
+  border: 2px solid cyan;
   color: cyan;
   cursor: pointer;
 }
@@ -62,25 +35,10 @@ button {
 button:hover {
   background: cyan;
   color: black;
-  box-shadow: 0 0 20px cyan;
-}
-
-/* NOTIFICATIONS */
-#notifyContainer {
-  position: fixed;
-  top: 10px;
-  right: 10px;
 }
 
 .notify {
-  background: black;
   border: 2px solid cyan;
   padding: 10px;
   margin-top: 10px;
-  animation: slideIn 0.5s;
-}
-
-@keyframes slideIn {
-  from { transform: translateX(100%); }
-  to { transform: translateX(0); }
 }
