@@ -2,45 +2,38 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Nova Luau Studio</title>
+  <title>Nova Luau Hub</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1>⚡ NOVA LUAU STUDIO ⚡</h1>
-
-<div class="layout">
-
-  <!-- SIDEBAR -->
-  <div class="sidebar">
-    <h3>📚 Templates</h3>
-    <button onclick="loadTemplate('basic')">Basic</button>
-    <button onclick="loadTemplate('medium')">Medium</button>
-    <button onclick="loadTemplate('advanced')">Advanced</button>
-
-    <h3>🧠 Tips</h3>
-    <button onclick="showTips('basic')">Basic</button>
-    <button onclick="showTips('medium')">Medium</button>
-    <button onclick="showTips('hard')">Hard</button>
-    <button onclick="showTips('extreme')">Extreme</button>
-  </div>
-
-  <!-- MAIN -->
-  <div class="main">
-    <textarea id="editor" placeholder="-- Write your Luau script here..."></textarea>
-
-    <div class="buttons">
-      <button onclick="copyScript()">Copy</button>
-      <button onclick="downloadScript()">Download</button>
-      <button onclick="clearEditor()">Clear</button>
-      <button onclick="formatScript()">Format</button>
-      <button onclick="lineCount()">Lines</button>
-    </div>
-
-    <div id="info"></div>
-  </div>
-
+<!-- LOADING SCREEN -->
+<div id="loader">
+  <h1>⚡ Loading Nova Hub...</h1>
 </div>
+
+<!-- KEY SYSTEM -->
+<div id="keyScreen">
+  <h2>Enter Key</h2>
+  <input id="keyInput" placeholder="Enter key...">
+  <button onclick="checkKey()">Submit</button>
+</div>
+
+<!-- MAIN HUB -->
+<div id="hub" style="display:none;">
+  <h1>⚡ NOVA LUAU HUB ⚡</h1>
+
+  <textarea id="editor" placeholder="-- Write your Luau script..."></textarea>
+
+  <div class="buttons">
+    <button onclick="copyScript()">Copy</button>
+    <button onclick="downloadScript()">Download</button>
+    <button onclick="clearEditor()">Clear</button>
+  </div>
+</div>
+
+<!-- NOTIFICATIONS -->
+<div id="notifyContainer"></div>
 
 <script src="script.js"></script>
 </body>
