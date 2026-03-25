@@ -6,52 +6,77 @@
 </head>
 <body>
 
-<!-- LOADING SCREEN -->
-<div id="loadingScreen">
-  <h1>Loading JoJo RPG...</h1>
-  <p id="loadingProgress">0%</p>
+<!-- KEY SCREEN -->
+<div id="keyScreen">
+  <h1>🔐 Enter Key</h1>
+  <input id="keyInput" placeholder="Enter key...">
+  <button onclick="checkKey()">Enter</button>
 </div>
 
-<!-- GAME UI -->
+<!-- GAME -->
 <div id="gameUI" style="display:none;">
-  <h1>🌌 JoJo RPG: Ultimate Bosses 🌌</h1>
 
-  <div class="game">
+<h1>🌌 JoJo RPG 🌌</h1>
 
-    <div class="panel">
-      <h2>👤 Player</h2>
-      <p id="trait"></p>
-      <p id="stand"></p>
-      <p id="level"></p>
-      <p id="stats"></p>
-    </div>
+<!-- TABS -->
+<div class="tabs">
+  <button onclick="openTab('fight')">⚔️ Fight</button>
+  <button onclick="openTab('train')">💪 Train</button>
+  <button onclick="openTab('inventory')">🎒 Inventory</button>
+  <button onclick="openTab('admin')">👑 Admin</button>
+</div>
 
-    <div class="panel">
-      <h2>🎒 Inventory</h2>
-      <p id="inventory"></p>
-      <button onclick="useArrow()">Use Arrow</button>
-      <button onclick="train()">Train</button>
-    </div>
+<!-- FIGHT -->
+<div id="fight" class="tab">
+  <button onclick="findEnemy()">Find Enemy</button>
+  <button onclick="useMove(0)">Move 1</button>
+  <button onclick="useMove(1)">Move 2</button>
+  <button onclick="useMove(2)">Move 3</button>
+  <button onclick="dodge()">Dodge</button>
+  <button onclick="block()">Block</button>
+  <button onclick="fightBoss()">Boss</button>
+</div>
 
-    <div class="panel">
-      <h2>⚔️ Combat</h2>
-      <button onclick="attack()">Attack</button>
-      <button onclick="ability()">Ability</button>
-      <button onclick="fightBoss()">Fight Boss</button>
-    </div>
+<!-- TRAIN -->
+<div id="train" class="tab">
+  <button onclick="train()">Train (+HP)</button>
+</div>
 
-    <div class="panel">
-      <h2>🕹️ Movement</h2>
-      <p>Use arrow keys to move on map</p>
-    </div>
+<!-- INVENTORY -->
+<div id="inventory" class="tab">
+  <p id="inventoryText"></p>
+  <button onclick="useArrow()">Use Arrow</button>
+</div>
 
+<!-- ADMIN -->
+<div id="admin" class="tab">
+  <input id="adminKey" placeholder="Admin Key">
+  <button onclick="unlockAdmin()">Unlock</button>
+
+  <div id="adminPanel" style="display:none;">
+    <button onclick="giveArrows()">+10 Arrows</button>
+    <button onclick="giveAll()">Give All</button>
+    <button onclick="setStand()">Pick Stand</button>
+    <button onclick="boostStats()">Boost</button>
   </div>
+</div>
 
-  <div id="map">
-    <div id="playerDot"></div>
-  </div>
+<!-- PLAYER INFO -->
+<div class="info">
+  <p id="standText"></p>
+  <p id="hpText"></p>
+</div>
 
-  <div id="notifyContainer"></div>
+<!-- EFFECTS -->
+<div id="aura"></div>
+<div id="timeStopOverlay">⏱️ TIME HAS STOPPED ⏱️</div>
+
+<!-- SOUNDS -->
+<audio id="hitSound" src="https://www.myinstants.com/media/sounds/punch.mp3"></audio>
+<audio id="tsSound" src="https://www.myinstants.com/media/sounds/time-stop.mp3"></audio>
+
+<div id="notifyContainer"></div>
+
 </div>
 
 <script src="script.js"></script>
