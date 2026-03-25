@@ -1,123 +1,110 @@
 body {
-  background: black;
-  color: cyan;
-  font-family: Arial;
+  background: linear-gradient(black, purple);
+  color: gold;
   text-align: center;
+  font-family: Arial;
 }
 
-h1 {
-  text-shadow: 0 0 20px cyan;
+/* INPUT */
+input {
+  padding: 10px;
+  background: black;
+  border: 2px solid gold;
+  color: gold;
 }
 
-.game {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+/* TABS */
+.tabs button {
+  margin: 5px;
+  padding: 10px;
+  background: purple;
+  color: gold;
+  border: 2px solid gold;
 }
 
-.panel {
-  border: 2px solid cyan;
-  padding: 15px;
-  width: 230px;
-  box-shadow: 0 0 20px cyan;
+.tabs button:hover {
+  background: gold;
+  color: black;
 }
 
+/* BUTTONS */
 button {
   margin: 5px;
   padding: 10px;
   background: black;
-  border: 2px solid cyan;
-  color: cyan;
+  border: 2px solid gold;
+  color: gold;
   cursor: pointer;
 }
 
 button:hover {
-  background: cyan;
+  background: gold;
   color: black;
 }
 
-.notify {
-  border: 2px solid cyan;
-  padding: 10px;
-  margin-top: /* GENERAL */
-body {
-  background: black;
-  color: cyan;
-  font-family: Arial;
-  text-align: center;
-  margin: 0;
-  overflow: hidden;
+button:active {
+  transform: scale(0.9);
 }
 
-/* LOADING SCREEN */
-#loadingScreen {
-  position: fixed;
-  top:0; left:0;
-  width: 100%;
-  height: 100%;
-  background: black;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: cyan;
-}
-
-/* GAME UI */
-.game {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+/* PANELS */
+.tab {
+  display: none;
   margin-top: 20px;
 }
 
-.panel {
-  border: 2px solid cyan;
-  padding: 15px;
-  width: 230px;
-  box-shadow: 0 0 20px cyan;
-}
-
-button {
-  margin: 5px;
-  padding: 10px;
-  background: black;
-  border: 2px solid cyan;
-  color: cyan;
-  cursor: pointer;
-}
-
-button:hover {
-  background: cyan;
-  color: black;
-}
-
-/* MAP */
-#map {
-  position: relative;
-  margin: 20px auto;
-  width: 500px;
-  height: 300px;
-  border: 2px solid cyan;
-  background: #111;
-}
-
-#playerDot {
-  position: absolute;
-  width: 15px;
-  height: 15px;
-  background: yellow;
-  top: 140px;
-  left: 240px;
-  border-radius: 50%;
+/* INFO */
+.info {
+  margin-top: 20px;
 }
 
 /* NOTIFICATIONS */
 .notify {
-  border: 2px solid cyan;
-  padding: 10px;
-  margin-top: 10px;
-  background: black;
+  border: 2px solid gold;
+  margin: 5px;
+  padding: 5px;
+}
+
+/* AURA */
+#aura {
+  position: fixed;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: auraPulse 2s infinite;
+  pointer-events: none;
+}
+
+@keyframes auraPulse {
+  0% { transform: translate(-50%, -50%) scale(1); opacity:0.5; }
+  50% { transform: translate(-50%, -50%) scale(1.3); opacity:1; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity:0.5; }
+}
+
+/* TIME STOP */
+#timeStopOverlay {
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:black;
+  color:white;
+  display:none;
+  justify-content:center;
+  align-items:center;
+  font-size:40px;
+  z-index:999;
+}
+
+/* HIT FLASH */
+.hit {
+  animation: hitFlash 0.2s;
+}
+
+@keyframes hitFlash {
+  0% { background:red; }
+  100% { background:transparent; }
 }
